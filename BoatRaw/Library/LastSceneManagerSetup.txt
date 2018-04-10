@@ -1,0 +1,4 @@
+sceneSetups:
+- path: D:/GZCloud/Unity/homework4/Assets/1.unity
+  isLoaded: 0
+  isActive: 0
