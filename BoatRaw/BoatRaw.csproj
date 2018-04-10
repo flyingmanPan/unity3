@@ -13,14 +13,12 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.4.0f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -237,12 +235,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CCActionManager.cs" />
-    <Compile Include="Assets\Scripts\GameObject.cs" />
-    <Compile Include="Assets\Scripts\SSActionManager.cs" />
-    <Compile Include="Assets\Scripts\SSDirector.cs" />
-    <Compile Include="Assets\Scripts\bahavior.cs" />
-    <Compile Include="Assets\Scripts\SSAction.cs" />
+    <Compile Include="Assets\bahavior.cs" />
+    <Compile Include="Assets\CCActionManager.cs" />
+    <Compile Include="Assets\IGameObject.cs" />
+    <Compile Include="Assets\SSAction.cs" />
+    <Compile Include="Assets\SSActionManager.cs" />
+    <Compile Include="Assets\SSDirector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

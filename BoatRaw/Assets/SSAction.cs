@@ -22,14 +22,14 @@ public class SSAction : ScriptableObject
     public Transform Tra { get; set; }
     public ISSActionCallback Callback { get; set; }
 
-    protected SSAction() { }
+    //protected SSAction() { }
 
     public virtual void Start()
     {
-        ;
+        throw new System.NotImplementedException();
     }
     public virtual void Update()
     {
-        ;
+        throw new System.NotImplementedException();
     }
 }

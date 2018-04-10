@@ -34,7 +34,7 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
     public int NumDevil = 3;
     int Priest = 3;
     int Devil = 3;
-    
+
     Vector3[] positions = new Vector3[] {
             new Vector3(6.5F,2.25F,0), new Vector3(7.5F,2.25F,0), new Vector3(8.5F,2.25F,0),
             new Vector3(9.5F,2.25F,0), new Vector3(10.5F,2.25F,0), new Vector3(11.5F,2.25F,0),
@@ -49,17 +49,17 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
     public void LoadResources()
     {
         water = Instantiate(
-            Resources.Load("Perfabs/Water", typeof(GameObject)), 
-            waterPos, 
-            Quaternion.identity, 
+            Resources.Load("Perfabs/Water", typeof(GameObject)),
+            waterPos,
+            Quaternion.identity,
             null) as GameObject;
         water.name = "water";
 
         fromCoast = Instantiate(
-            Resources.Load("Perfabs/Stone", 
-            typeof(GameObject)), 
-            fromCoastPos, 
-            Quaternion.identity, 
+            Resources.Load("Perfabs/Stone",
+            typeof(GameObject)),
+            fromCoastPos,
+            Quaternion.identity,
             null) as GameObject;
         fromCoast.name = "begin";
 
@@ -83,20 +83,20 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
         endItem = new GameObject[NumDevil + NumPriest];
         for (int i = 0; i < NumPriest; i++)
         {
-            GameObject priestObj= Instantiate(
+            GameObject priestObj = Instantiate(
                 Resources.Load("Perfabs/Priest",
                 typeof(GameObject)),
                 Vector3.zero,
                 Quaternion.identity,
                 null) as GameObject;
-            priestObj.name = "priest"+i;
+            priestObj.name = "priest" + i;
 
             priestObj.transform.position = positions[i];
             characters[i] = priestObj;
             startItem[i] = priestObj;
         }
 
-        for (int i = NumPriest; i < NumDevil+NumPriest; i++)
+        for (int i = NumPriest; i < NumDevil + NumPriest; i++)
         {
             GameObject devObj = Instantiate(
                 Resources.Load("Perfabs/Devil",
@@ -114,7 +114,7 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
     public void ReStart()
     {
         boat.transform.position = boatPosition;
-        for (int i = 0; i < NumPriest+NumDevil; i++)
+        for (int i = 0; i < NumPriest + NumDevil; i++)
         {
             characters[i].transform.position = positions[i];
             startItem[i] = characters[i];
@@ -124,7 +124,7 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
         boatLeft = false;
         for (int i = 0; i < 2; i++)
         {
-            if(BoatItem[i]!=null)
+            if (BoatItem[i] != null)
             {
                 BoatItem[i].transform.parent = null;
                 BoatItem[i] = null;
@@ -132,10 +132,10 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
         }
         found = false;
     }
-    public void ReLoad(int priest,int devil)
+    public void ReLoad(int priest, int devil)
     {
         ReStart();
-        for (int i = 0; i < NumDevil+NumPriest; i++)
+        for (int i = 0; i < NumDevil + NumPriest; i++)
         {
             Destroy(characters[i]);
         }
@@ -197,7 +197,7 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
             }
             else
             {
-               ReLoad(Priest,Devil);
+                ReLoad(Priest, Devil);
             }
         }
 
@@ -208,9 +208,9 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
         int priestEnd = 0;
         int devilStart = 0;
         int devilEnd = 0;
-        for (int i = 0; i < NumDevil+NumPriest; i++)
+        for (int i = 0; i < NumDevil + NumPriest; i++)
         {
-            if(i<NumPriest)
+            if (i < NumPriest)
             {
                 if (characters[i].transform.position.x > 0)
                     priestStart++;
@@ -225,12 +225,12 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
                     devilEnd++;
             }
         }
-        if(priestEnd+devilEnd==NumDevil+NumPriest)
+        if (priestEnd + devilEnd == NumDevil + NumPriest)
         {
             status = 1;
             return;
         }
-        if((priestStart<devilStart&&priestStart>0)||(priestEnd<devilEnd&&priestEnd>0))
+        if ((priestStart < devilStart && priestStart > 0) || (priestEnd < devilEnd && priestEnd > 0))
         {
             status = -1;
             return;
@@ -239,10 +239,10 @@ public class IGameObject : MonoBehaviour, ISceneController, IUserAction
     }
     public Vector3 GetEmpty()
     {
-        if(boatLeft==false)
+        if (boatLeft == false)
         {
-            for (int i = 0; i < NumDevil+NumPriest; i++)
-                if(startItem[i]==null)
+            for (int i = 0; i < NumDevil + NumPriest; i++)
+                if (startItem[i] == null)
                     return positions[i];
         }
         else
